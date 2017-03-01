@@ -14,6 +14,7 @@ class superCharacter{
 		for($i=0; $i<$atk; $i++){
 			$total += int rand(1,6);
 		}
+		return $total;
 	}
 	
 }
@@ -31,6 +32,7 @@ class player extends superCharacter{
 		for($i=0; $i<def; $i++){
 			$total += int rand(1,6);
 		}
+		return $total;
 	}
 }
 
