@@ -37,6 +37,6 @@ class player extends superCharacter{
 }
 
 class enemy extends superCharacter{
-
+ //remove later if noting is changed from superclass
 }
 ?>
