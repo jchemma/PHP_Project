@@ -19,7 +19,7 @@
 			}
 			public function attack(){
 				$total = 0;
-				for($i=0; $i<$atk; $i++){
+				for($i=0; $i<$this->atk; $i++){
 					$total += rand(1,6);
 				}
 				return $total;
@@ -78,7 +78,8 @@
 		class enemy extends superCharacter{
 		 //remove later if noting is changed from superclass
 		}
-		
+	
+	
 		$hero = new player(20, 50, 3, 8);
 		$dragon = new superCharacter(70, 3, 10);
 		$heroattack = 0;
