@@ -8,19 +8,19 @@
 	<?php
 	
 		class superCharacter{
-			$health;
-			$atk;
-			$def;
+			private $health;
+			private $atk;
+			private $def;
 			
-			functin __construct($x,$y,$z){
+			function __construct($x,$y,$z){
 				$health = $x;
 				$atk = $y;
 				$def = $z;
 			}
 			public function attack(){
-				public $total = 0;
+				$total = 0;
 				for($i=0; $i<$atk; $i++){
-					$total += int rand(1,6);
+					$total += rand(1,6);
 				}
 				return $total;
 			}
@@ -59,9 +59,9 @@
 			}
 			
 			public function defend(){
-				public $total = 0;
+				$total = 0;
 				for($i=0; $i<def; $i++){
-					$total += int rand(1,6);
+					$total += rand(1,6);
 				}
 				return $total;
 			}
@@ -77,28 +77,28 @@
 		$enemmyattack;
 		
 		function rollAtk(){
-			$heroattack = hero->attack();
-			$enemyattack = enemy->attack();
+			$heroattack = $hero->attack();
+			$enemyattack = $enemy->attack();
 		}
 		
 		function rollDef(){
-			$heroattack = hero->defend();
-			$enemyattack = enemy->attack();
+			$heroattack = $hero->defend();
+			$enemyattack = $enemy->attack();
 		}
 		
-		public function reroll(){
-			$heroattack = hero->attack();
+		function reroll(){
+			$heroattack = $hero->attack();
 		}
 		
-		public function battle(){
+		function battle(){
 			if($heroattack > $enemyattack){
-				$enemy->health -= ($heroattack - $enemyattack)
+				$enemy->health -= ($heroattack - $enemyattack);
 			}
 			if($heroattack < $enemyattack){
-				$hero->health -= ($enemyattack - $healthattack)
+				$hero->health -= ($enemyattack - $healthattack);
 			}
 			if($herodefense < $enemyattack){
-				$hero->health -= ($enemyattack - $healthattack)
+				$hero->health -= ($enemyattack - $healthattack);
 			}
 			
 			if($hero->defense > $enemyattack){
