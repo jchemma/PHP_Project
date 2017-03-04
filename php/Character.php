@@ -17,6 +17,29 @@ class superCharacter{
 		return $total;
 	}
 	
+	public function getHealth(){
+		return $this->$health;
+	}
+	
+	public function setHealth($health){
+		$this->$health =$health;
+	}
+	
+	public function getAtk(){
+		return $this->$atk;
+	}
+	
+	public function setAtk($atk){
+		$this->$atk =$atk;
+	}
+	
+	public function getDef(){
+		return $this->$def;
+	}
+	
+	public function setDef($def){
+		$this->$def =$def;
+	}
 }
 
 class player extends superCharacter{
