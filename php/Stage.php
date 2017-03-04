@@ -17,7 +17,7 @@
 				$this -> atk = $y;
 				$this -> def = $z;
 			}
-			public function attack(){
+			function attack(){
 				$total = 0;
 				for($i=0; $i<$this->atk; $i++){
 					$total += rand(1,6);
@@ -78,6 +78,7 @@
 		class enemy extends superCharacter{
 		 //remove later if noting is changed from superclass
 		}
+<<<<<<< HEAD
 	
 	
 		$hero = new player(20, 50, 3, 8);
@@ -110,16 +111,52 @@
 			echo "<p>Gautam is cool</p>";
 			if($heroattack > $enemyattack){
 				$enemy->health -= ($heroattack - $enemyattack);
-			}
-			if($heroattack < $enemyattack){
-				$hero->health -= ($enemyattack - $healthattack);
-			}
-			if($herodefense < $enemyattack){
-				$hero->setHealth($hero->getHealth() - ($enemyattack - $healthattack));
+=======
+		
+		class Fight {
+			$hero = new player(20, 50, 3, 8);
+			$dragon = new superCharacter(70, 3, 10);
+			$heroattack = 0;
+			$enemmyattack = 0;
+
+			function static rollAtk(){
+				$hero2 = new player(6,7,8,9);
+				$heroattack = $hero2 -> attack();
+				echo "$heroattack";
+				$enemyattack = $enemy->attack();
+				battle();
+				echo "<p>Gautam is cool</p>";
+>>>>>>> origin/master
 			}
 			
-			if($hero->defense > $enemyattack){
-				//nothing yet;
+			function rollDef(){
+				$heroattack = $hero->defend();
+				$enemyattack = $enemy->attack();
+			}
+			
+			function reroll(){
+				$heroattack = $hero->attack();
+			}
+			
+			function test(){
+				echo "<p>Gautam is fool</p>";
+			}
+			
+			function battle(){
+				echo "<p>Gautam is cool</p>";
+				if($heroattack > $enemyattack){
+					$enemy->health -= ($heroattack - $enemyattack);
+				}
+				if($heroattack < $enemyattack){
+					$hero->health -= ($enemyattack - $healthattack);
+				}
+				if($herodefense < $enemyattack){
+					$hero->setHealth($hero->getHealth() - ($enemyattack - $healthattack));
+				}
+				
+				if($hero->defense > $enemyattack){
+					//nothing yet;
+				}
 			}
 		}
 	?>
@@ -144,7 +181,7 @@
 			</form>
 			<?php
 				if(isset($_GET['attack'])){
-					rollAtk();
+					$Fight -> rollAtk();
 					echo "Your mom";
 				}
 			?>
