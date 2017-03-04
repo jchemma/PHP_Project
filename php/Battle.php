@@ -5,8 +5,13 @@ $dragon = new enemy(70, 3, 10);
 $heroattack;
 $enemmyattack;
 
-public function roll(){
+public function rollAtk(){
 	$heroattack = hero->attack();
+	$enemyattack = enemy->attack();
+}
+
+public function rollDef(){
+	$heroattack = hero->defend();
 	$enemyattack = enemy->attack();
 }
 
