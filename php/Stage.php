@@ -13,9 +13,9 @@
 			include('Player.php');
 			include('Boss.php');
 			
-			$_SESSION('player') = new Player(10,10,10,10);
-			$_SESSION('boss') = new Boss(10,10,10,10);
-			$_SESSION('battle') = new Battle($_SESSION['player'],$_SESSION['boss']);
+			$_SESSION['player'] = new Player(10,10,10,10);
+			$_SESSION['boss'] = new Boss(10,10,10,10);
+			$_SESSION['battle'] = new Battle($_SESSION['player'],$_SESSION['boss']);
 			
 		?>
 		<div class="player-bar">

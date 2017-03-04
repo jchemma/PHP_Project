@@ -3,13 +3,18 @@
 	<body>
 		<?php
 		
-			class Battle {
+			class Battle implements Serializable{
 				
-				private $player = new Player(10,10,10,10);
-				private $boss = new Boss(10,10,10,10);
+				private $player;
+				private $boss;
 				private $player_attack = 0;
 				private $boss_attack = 0;
 				private $isAttacking = False;
+				
+				function __construct($player, $boss){
+					$this -> player = $player;
+					$this -> boss = $boss;
+				}
 				
 				function rollAttack(){
 					$isAttacking = True;
