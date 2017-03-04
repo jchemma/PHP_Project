@@ -3,19 +3,19 @@
 <head>
 	<link type="text/css" rel="stylesheet" href="../css/stage_style.css">
 	<title>Game</title>
+	<link type="text/css" rel="stylesheet.css" href="/../css/stage_style.css"
 </head>
 <body>
 	<?php
-	
 		class superCharacter{
 			private $health;
 			public $atk;
 			public $def;
 			
 			function __construct($x,$y,$z){
-				$this->health = $x;
-				$atk = $y;
-				$def = $z;
+				$this-> health = $x;
+				$this -> atk = $y;
+				$this -> def = $z;
 			}
 			public function attack(){
 				$total = 0;
@@ -53,10 +53,10 @@
 		class player extends superCharacter{
 			private $mana;
 			
-			/* function __construct($w, $x, $y, $z){
+			function __construct($w, $x, $y, $z){
 				parent:: __construct($x, $y, $z);
-				$mana = $w;
-			} */
+				$this -> mana = $w;
+			}
 			
 			public function defend(){
 				$total = 0;
@@ -65,20 +65,31 @@
 				}
 				return $total;
 			}
+			
+			public function getMana(){
+				return $this -> mana;
+			}
+			
+			public function setMana($mana){
+				$this -> mana = $mana;
+			}
 		}
 
 		class enemy extends superCharacter{
 		 //remove later if noting is changed from superclass
 		}
 		
-		$hero = new superCharacter(50, 3, 8);
-		$dragon = new enemy(70, 3, 10);
-		$heroattack;
-		$enemmyattack;
+		$hero = new player(20, 50, 3, 8);
+		$dragon = new superCharacter(70, 3, 10);
+		$heroattack = 0;
+		$enemmyattack = 0;
 		
 		function rollAtk(){
+			echo "Your dad";
 			$heroattack = $hero->attack();
 			$enemyattack = $enemy->attack();
+			battle();
+			echo "<p>Gautam is cool</p>";
 		}
 		
 		function rollDef(){
@@ -90,7 +101,12 @@
 			$heroattack = $hero->attack();
 		}
 		
+		function test(){
+			echo "<p>Gautam is fool</p>";
+		}
+		
 		function battle(){
+			echo "<p>Gautam is cool</p>";
 			if($heroattack > $enemyattack){
 				$enemy->health -= ($heroattack - $enemyattack);
 			}
@@ -98,7 +114,7 @@
 				$hero->health -= ($enemyattack - $healthattack);
 			}
 			if($herodefense < $enemyattack){
-				$hero->health -= ($enemyattack - $healthattack);
+				$hero->setHealth($hero->getHealth() - ($enemyattack - $healthattack));
 			}
 			
 			if($hero->defense > $enemyattack){
@@ -106,27 +122,42 @@
 			}
 		}
 	?>
-	
-	<div class="hp-bar">
-		<div class="player-status">
-			<div id="hp">
-				Health:
-				<?php 
-					$health = $hero -> getHealth();
-					echo "$health";
-				?>
-			</div>
-			<div id="mana">
-				Mana:
-			</div>
+	<div class="player-status">
+		<div id="hp">
+			Health:
+			<?php 
+				$health = $hero -> getHealth();
+				echo "$health";
+			?>
 		</div>
-		<div class="monster-hp"></div>
+		<div id="mana">
+			Mana:
+			<?php
+				$mana = $hero -> getMana();
+				echo "$mana";
+			?>
+		</div>
+		<div class="button-bar">
+			<form action="Stage.php" method="get">
+				<button type="submit" name="attack">ATTACK</button>
+			</form>
+			<?php
+				if(isset($_GET['attack'])){
+					rollAtk();
+					echo "Your mom";
+				}
+			?>
+			<form>
+				<button name="defend" type="submit" value="DEFEND" onClick="rollDef();">DEFEND</button>
+			</form>
+		</div>
 	</div>
-	<div class="button-bar">
-		<form action="stage.php" method="get">
-			<button name="attack" type="submit" value="ATTACK" onClick="rollAtk();">ATTACK</button>
-			<button name="defend" type="submit" value="DEFEND" onClick="rollDef();">DEFEND</button>
-		</form>
+	<div class="monster-hp">
+		Health:
+		<?php
+			$health = $dragon -> getHealth();
+			echo "$health";
+		?>
 	</div>
 	<div class="arena">
 		<div class="player"></div>
