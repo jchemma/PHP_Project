@@ -33,7 +33,7 @@
 			}
 			function attack(){
 				$total = 0;
-				for($i=0; $i<$this->atk; $i++){
+				for($i=0; $i<$atk; $i++){
 					$total += rand(1,6);
 				}
 				return $total;
@@ -93,8 +93,12 @@
 		 //remove later if noting is changed from superclass
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 	
+=======
+		
+>>>>>>> parent of e878bb5... small change
 		$hero = new player(20, 50, 3, 8);
 		$dragon = new superCharacter(70, 3, 10);
 		$heroattack = 0;
