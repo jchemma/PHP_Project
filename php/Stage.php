@@ -9,11 +9,11 @@
 	
 		class superCharacter{
 			private $health;
-			private $atk;
-			private $def;
+			public $atk;
+			public $def;
 			
 			function __construct($x,$y,$z){
-				$health = $x;
+				$this->health = $x;
 				$atk = $y;
 				$def = $z;
 			}
@@ -25,38 +25,38 @@
 				return $total;
 			}
 			
-			public function getHealth(){
-				return $this->$health;
+			function getHealth(){
+				return $this-> health;
 			}
 			
-			public function setHealth($health){
-				$this->$health =$health;
+			function setHealth($health){
+				$this->health =$health;
 			}
 			
 			public function getAtk(){
-				return $this->$atk;
+				return $this->atk;
 			}
 			
 			public function setAtk($atk){
-				$this->$atk =$atk;
+				$this->atk =$atk;
 			}
 			
 			public function getDef(){
-				return $this->$def;
+				return $this->def;
 			}
 			
 			public function setDef($def){
-				$this->$def =$def;
+				$this->def =$def;
 			}
 		}
 
 		class player extends superCharacter{
 			private $mana;
 			
-			function __construct($w, $x, $y, $z){
+			/* function __construct($w, $x, $y, $z){
 				parent:: __construct($x, $y, $z);
 				$mana = $w;
-			}
+			} */
 			
 			public function defend(){
 				$total = 0;
@@ -71,7 +71,7 @@
 		 //remove later if noting is changed from superclass
 		}
 		
-		$hero = new player(20, 50, 3, 8);
+		$hero = new superCharacter(50, 3, 8);
 		$dragon = new enemy(70, 3, 10);
 		$heroattack;
 		$enemmyattack;
@@ -106,12 +106,14 @@
 			}
 		}
 	?>
+	
 	<div class="hp-bar">
 		<div class="player-status">
 			<div id="hp">
 				Health:
 				<?php 
-					echo $_GET['health']
+					$health = $hero -> getHealth();
+					echo "$health";
 				?>
 			</div>
 			<div id="mana">
@@ -122,8 +124,8 @@
 	</div>
 	<div class="button-bar">
 		<form action="stage.php" method="get">
-			<button name="attack" type="submit" value="ATTACK" onClick="roll();"></button>
-			<button name="defend" type="submit" value="DEFEND"></button>
+			<button name="attack" type="submit" value="ATTACK" onClick="rollAtk();">ATTACK</button>
+			<button name="defend" type="submit" value="DEFEND" onClick="rollDef();">DEFEND</button>
 		</form>
 	</div>
 	<div class="arena">
