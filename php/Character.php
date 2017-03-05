@@ -7,6 +7,7 @@
 				public $atk;
 				public $def;
 				
+				
 				function __construct($x,$y,$z){
 					$this-> health = $x;
 					$this -> atk = $y;
