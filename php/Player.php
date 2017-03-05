@@ -28,9 +28,7 @@
 				}
 				
 				public function decreaseMana($mana){
-					if($this->mana >= $mana){
-						$this->mana -= $mana;
-					}
+					$this->mana -= $mana;
 				}
 			}
 		?>

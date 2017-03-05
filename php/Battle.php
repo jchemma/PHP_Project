@@ -62,6 +62,12 @@
 					
 				}
 				
+				function win_condition(){
+					if($this->player->getHealth()<=0 || $this->boss->getHealth()<=0){
+						
+					}
+				}
+				
 				function resett(){
 					$_SESSION['player'] = new Player(10,100,10,10);
 					$_SESSION['boss'] = new Boss(100,10,10);

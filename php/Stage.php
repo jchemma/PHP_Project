@@ -59,7 +59,6 @@
 			</h3>
 			</div>
 			
-			
 		</div>
 		<div class="boss-bar">
 			<h3>Health:
