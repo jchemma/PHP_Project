@@ -12,8 +12,8 @@
 			include('Player.php');
 			include('Boss.php');
 		
-			$_SESSION['player'] = new Player(10,10,10,10);
-			$_SESSION['boss'] = new Boss(10,10,10,10);
+			$_SESSION['player'] = new Player(10,100,10,10);
+			$_SESSION['boss'] = new Boss(100,10,10);
 			$_SESSION['battle'] = new Battle($_SESSION['player'],$_SESSION['boss']);
 			
 		?>
@@ -31,32 +31,36 @@
 					echo "$current_mana";
 				?>
 			</h3>
+			
+			
 			<div class="button-bar">
 				<form action="Stage.php" method="get">
 					<button type="submit" name="attack">Attack</button>
 				</form>
 				<?php 
-					if(isset($_POST['attack'])){
-						$_SESSION('battle') -> rollAttack();
+					if(isset($_GET['attack'])){
+						$_SESSION['battle'] -> rollAttack();
 					}
 				?>
-				<form action="Stage.php">
+				<form action="Stage.php" method="get">
 					<button type="submit" name="defend">Defend</button>
 				</form>
 				<?php 
-					if(isset($_POST['defend'])){
-						$_SESSION('battle') -> rollDefense();
+					if(isset($_GET['defend'])){
+						$_SESSION['battle'] -> rollDefense();
 					}
 				?>
-				<form action="Stage.php">
+				<form action="Stage.php" method="get">
 					<button type="submit" name="reroll">ReRoll</button>
 				</form>
 				<?php 
-					if(isset($_POST['reroll'])){
-						$_SESSION('battle') -> reroll();
+					if(isset($_GET['reroll'])){
+						$_SESSION['battle'] -> reroll();
 					}
 				?>
 			</div>
+			
+			
 		</div>
 		<div class="boss-bar">
 			<h3>Health:

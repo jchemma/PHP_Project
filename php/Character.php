@@ -12,6 +12,13 @@
 					$this -> atk = $y;
 					$this -> def = $z;
 				}
+				function attack(){
+					$total = 0;
+					for($i=0; $i<$this->atk; $i++){
+						$total += rand(1,6);
+					}
+					return $total;
+				}
 				
 				function getHealth(){
 					return $this-> health;
@@ -35,6 +42,11 @@
 				
 				public function setDef($def){
 					$this->def =$def;
+				}
+				
+				public function decreaseHealth($health){
+					$this -> health -= $health;
+					echo "$health";
 				}
 			}
 		?>
