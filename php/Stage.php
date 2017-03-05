@@ -11,10 +11,16 @@
 			include('Player.php');
 			include('Boss.php');
 		
- 			$_SESSION['player'] = new Player(10,100,10,10);
-			$_SESSION['boss'] = new Boss(100,10,10);
-			$_SESSION['battle'] = new Battle($_SESSION['player'],$_SESSION['boss']);
-			session_start();
+ 			if(!isset($_COOKIE["PHPSESSID"])){
+				session_start();
+				$_SESSION['player'] = new Player(10,100,10,10);
+				$_SESSION['boss'] = new Boss(100,10,10);
+				$_SESSION['battle'] = new Battle($_SESSION['player'],$_SESSION['boss']);
+				echo "no previous session";
+			}else{
+				session_start();
+				echo "previous session exists";
+			}
 		?>
 		<div class="player-bar">	
 			<div class="button-bar">
