@@ -22,29 +22,25 @@
 					$this->boss_attack = $this->boss -> attack();
 					if($this->player_attack > $this->boss_attack){
 						$this -> boss -> decreaseHealth(($this->player_attack)-($this -> boss_attack));
-						echo "Player wins <br><br>";
-						echo "Player Attack: ".$this->player_attack."<br>";
-						echo ($this->player_attack)-($this -> boss_attack)."<br>";
-						echo "Health:".$this->boss->getHealth()."<br>";
-						echo "Attack:".$this->boss->getAtk()."<br>";
-						echo "Defense:".$this->boss->getDef()."<br>";
-						
-						echo "Health:".$this->player->getHealth()."<br>";
-						echo "Attack:".$this->player->getAtk()."<br>";
-						echo "Defense:".$this->player->getDef()."<br>";
-					}else{//($player_attack <  $boss_attack){
-						
+						echo "Winner: Boss<br>";
+						echo "Damage to Player: ".$this->boss_attack-$this->player_attack."<br>";
+						echo "Boss Damage: ".$this->boss_attack."<br>";
+						echo "Boss Health:".$this->boss->getHealth()."<br>";
+						echo "Boss Attack:".$this->boss->getAtk()."<br>";
+						echo "Boss Defense:".$this->boss->getDef()."<br><br>";
+						echo "Player Health:".$this->player->getHealth()."<br>";
+						echo "Player Attack:".$this->player->getAtk()."<br>";
+						echo "Player Defense:".$this->player->getDef()."<br>";
+					}else{
 						$this -> player -> decreaseHealth(($this->boss_attack)-($this -> player_attack));
-						echo "Boss wins <br><br>";
-						echo ($this->boss_attack)-($this -> player_attack);
-						echo "Player Attack: ".$this->player_attack;
-						echo "Boss Attack: ".$this->boss_attack;
-						echo "Health:".$this->boss->getHealth()."<br>";
-						echo "Attack:".$this->boss->getAtk()."<br>";
-						echo "Defense:".$this->boss->getDef()."<br>";
-						echo "Health:".$this->player->getHealth()."<br>";
-						echo "Attack:".$this->player->getAtk()."<br>";
-						echo "Defense:".$this->player->getDef()."<br>";
+						echo "Winner: Player<br>";
+						echo "Damage to Boss: ".$this->player_attack-$this->boss_attack."<br>";
+						echo "Boss Health:".$this->boss->getHealth()."<br>";
+						echo "Boss Attack:".$this->boss->getAtk()."<br>";
+						echo "Boss Defense:".$this->boss->getDef()."<br><br>";
+						echo "Player Health:".$this->player->getHealth()."<br>";
+						echo "Player Attack:".$this->player->getAtk()."<br>";
+						echo "Player Defense:".$this->player->getDef()."<br>";
 					}
 				}
 				

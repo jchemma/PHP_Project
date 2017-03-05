@@ -2,8 +2,6 @@
 <html>
 	<head>
 		<link type="text/css" rel="stylesheet" href="../css/stage_style.css">
-		<title>Game</title>
-		<link type="text/css" rel="stylesheet.css" href="/../css/stage_style.css"
 	</head>
 	<body>
 		<?php

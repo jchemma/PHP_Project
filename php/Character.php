@@ -46,7 +46,6 @@
 				
 				public function decreaseHealth($health){
 					$this -> health -= $health;
-					echo "$health";
 				}
 			}
 		?>
