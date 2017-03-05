@@ -5,32 +5,18 @@
 	</head>
 	<body>
 		<?php
-			session_start();
+		
+			
 			include('Battle.php');
 			include('Player.php');
 			include('Boss.php');
 		
-			$_SESSION['player'] = new Player(10,100,10,10);
+ 			$_SESSION['player'] = new Player(10,100,10,10);
 			$_SESSION['boss'] = new Boss(100,10,10);
 			$_SESSION['battle'] = new Battle($_SESSION['player'],$_SESSION['boss']);
-			
+			session_start();
 		?>
-		<div class="player-bar">
-			<h3>Health:
-				<?php
-					$current_health = $_SESSION["player"]-> getHealth();
-					echo "$current_health";
-				?>
-			</h3>
-			<h3>
-				Mana:
-				<?php
-					$current_mana = $_SESSION["player"] -> getMana();
-					echo "$current_mana";
-				?>
-			</h3>
-			
-			
+		<div class="player-bar">	
 			<div class="button-bar">
 				<form action="Stage.php" method="get">
 					<button type="submit" name="attack">Attack</button>
@@ -49,13 +35,28 @@
 					}
 				?>
 				<form action="Stage.php" method="get">
-					<button type="submit" name="reroll">ReRoll</button>
+					<button type="submit" name="heal">Heal</button>
 				</form>
 				<?php 
-					if(isset($_GET['reroll'])){
-						$_SESSION['battle'] -> reroll();
+					if(isset($_GET['heal'])){
+						$_SESSION['battle'] -> heal();
 					}
 				?>
+				
+				<h3>
+					Health:
+					<?php
+						$current_health = $_SESSION["player"]-> getHealth();
+						echo "$current_health";
+					?>
+				</h3>
+				<h3>
+					Mana:
+					<?php
+						$current_mana = $_SESSION["player"] -> getMana();
+						echo "$current_mana";
+					?>
+			</h3>
 			</div>
 			
 			
@@ -70,5 +71,15 @@
 		</div>
 		<div class="player"></div>
 		<div class="boss"></div>
+		<div class="Reset">
+			<form action="Stage.php" method="get">
+				<button type="submit" name="reset">RESET</button>
+			</form>
+			<?php
+				if(isset($_GET['reset'])){
+					$_SESSION['battle'] -> resett();
+				}
+			?>
+		</div>
 	</body>
 </html>

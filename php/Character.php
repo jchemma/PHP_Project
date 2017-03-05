@@ -45,7 +45,7 @@
 				}
 				
 				public function decreaseHealth($health){
-					$this -> health -= $health;
+					$this -> health -= $health;	
 				}
 			}
 		?>

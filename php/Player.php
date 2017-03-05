@@ -13,7 +13,7 @@
 				
 				public function defend(){
 					$total = 0;
-					for($i=0; $i<def; $i++){
+					for($i=0; $i<$this->def; $i++){
 						$total += rand(1,6);
 					}
 					return $total;
@@ -25,6 +25,12 @@
 				
 				public function setMana($mana){
 					$this -> mana = $mana;
+				}
+				
+				public function decreaseMana($mana){
+					if($this->mana >= $mana){
+						$this->mana -= $mana;
+					}
 				}
 			}
 		?>
