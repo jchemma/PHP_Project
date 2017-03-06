@@ -16,66 +16,72 @@
 				$_SESSION['player'] = new Player(10,100,10,10);
 				$_SESSION['boss'] = new Boss(100,10,10);
 				$_SESSION['battle'] = new Battle($_SESSION['player'],$_SESSION['boss']);
-				echo "no previous session";
 			}else{
 				session_start();
-				echo "previous session exists";
 			}
 		?>
-		<div class="player-bar">	
-			<div class="button-bar">
-				<form action="Stage.php" method="get">
-					<button type="submit" name="attack">Attack</button>
-				</form>
-				<?php 
-					if(isset($_GET['attack'])){
-						$_SESSION['battle'] -> rollAttack();
-					}
-				?>
-				<form action="Stage.php" method="get">
-					<button type="submit" name="defend">Defend</button>
-				</form>
-				<?php 
-					if(isset($_GET['defend'])){
-						$_SESSION['battle'] -> rollDefense();
-					}
-				?>
-				<form action="Stage.php" method="get">
-					<button type="submit" name="heal">Heal</button>
-				</form>
-				<?php 
-					if(isset($_GET['heal'])){
-						$_SESSION['battle'] -> heal();
-					}
-				?>
+		<div class="status">
+			<div class="player-bar">	
+				<div class="button-bar">
+					<form action="Stage.php" method="get">
+						<button type="submit" name="attack">Attack</button>
+					</form>
+					<?php 
+						if(isset($_GET['attack'])){
+							$_SESSION['battle'] -> rollAttack();
+						}
+					?>
+					<form action="Stage.php" method="get">
+						<button type="submit" name="defend">Defend</button>
+					</form>
+					<?php 
+						if(isset($_GET['defend'])){
+							$_SESSION['battle'] -> rollDefense();
+						}
+					?>
+					<form action="Stage.php" method="get">
+						<button type="submit" name="heal">Heal</button>
+					</form>
+					<?php 
+						if(isset($_GET['heal'])){
+							$_SESSION['battle'] -> heal();
+						}
+					?>
+					
+					<h3>
+						Health:
+						<?php
+							$current_health = $_SESSION["player"]-> getHealth();
+							echo "$current_health";
+						?>
+					</h3>
+					<h3>
+						Mana:
+						<?php
+							$current_mana = $_SESSION["player"] -> getMana();
+							echo "$current_mana";
+						?>
+				</h3>
+				</div>
 				
-				<h3>
-					Health:
+			</div>
+			<div class="boss-bar">
+				<h3>Health:
 					<?php
-						$current_health = $_SESSION["player"]-> getHealth();
-						echo "$current_health";
+						$current_boss_health = $_SESSION["boss"]-> getHealth();
+						echo "$current_boss_health";
 					?>
 				</h3>
-				<h3>
-					Mana:
-					<?php
-						$current_mana = $_SESSION["player"] -> getMana();
-						echo "$current_mana";
-					?>
-			</h3>
 			</div>
-			
 		</div>
-		<div class="boss-bar">
-			<h3>Health:
-				<?php
-					$current_boss_health = $_SESSION["boss"]-> getHealth();
-					echo "$current_boss_health";
-				?>
-			</h3>
+		<div class="arena">
+			<div class="player">
+				<img src="../img/player.gif" alt="The Hero">
+			</div>
+			<div class="boss">
+				<img src="../img/boss.gif" alt="The Boss">
+			</div>
 		</div>
-		<div class="player"></div>
-		<div class="boss"></div>
 		<div class="Reset">
 			<form action="Stage.php" method="get">
 				<button type="submit" name="reset">RESET</button>
