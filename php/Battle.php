@@ -21,7 +21,7 @@
 					if($this->player_attack > $this->boss_attack){
 						$this -> boss -> decreaseHealth(($this->player_attack)-($this -> boss_attack));
 						//echo "<h3 id=\"green\">Player Roll:".$this->player_attack."&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Boss Roll: ".$this->boss_attack."</h3><br>";
-						/* echo "Winner: Player<br>";
+						echo "Winner: Player<br>";
 						echo "Damage to Boss: ".($this->player_attack-$this->boss_attack)."<br>";
 						echo "Boss Roll: ".$this->boss_attack."<br>";
 						echo "Boss Health:".$this->boss->getHealth()."<br>";
@@ -30,11 +30,11 @@
 						echo "Player Roll:".$this->player_attack."<br>";
 						echo "Player Health:".$this->player->getHealth()."<br>";
 						echo "Player Attack:".$this->player->getAtk()."<br>";
-						echo "Player Defense:".$this->player->getDef()."<br>"; */
+						echo "Player Defense:".$this->player->getDef()."<br>"; 
 					}else{
 						$this -> player -> decreaseHealth(($this->boss_attack)-($this -> player_attack));
 						// "<h3 id=\"green\">Player Roll:".$this->player_attack."&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Boss Roll: ".$this->boss_attack."</h3><br>";
-						/* echo "Winner: Boss<br>";
+						 echo "Winner: Boss<br>";
 						echo "Damage to Player: ".($this->boss_attack-$this->player_attack)."<br>";
 						echo "Boss Health:".$this->boss->getHealth()."<br>";
 						echo "Boss Attack:".$this->boss->getAtk()."<br>";
@@ -43,7 +43,7 @@
 						echo "Player Health:".$this->player->getHealth()."<br>";
 						echo "Player Attack:".$this->player->getAtk()."<br>";
 						echo "Player Defense:".$this->player->getDef()."<br>";
-						echo "Player Roll:".$this->player_attack."<br>"; */
+						echo "Player Roll:".$this->player_attack."<br>"; 
 					}
 				}
 				
