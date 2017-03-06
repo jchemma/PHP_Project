@@ -21,7 +21,21 @@
 			}
 		?>
 		<div class="status">
-			<div class="player-bar">	
+			<div class="player-bar">
+				<h3 id="red">
+					Health:
+					<?php
+						$current_health = $_SESSION["player"]-> getHealth();
+						echo "$current_health";
+					?>
+				</h3>
+				<h3 id="blue">
+					Mana:
+					<?php
+						$current_mana = $_SESSION["player"] -> getMana();
+						echo "$current_mana";
+					?>
+				</h3>
 				<div class="button-bar">
 					<form action="Stage.php" method="get">
 						<button type="submit" name="attack">Attack</button>
@@ -47,26 +61,11 @@
 							$_SESSION['battle'] -> heal();
 						}
 					?>
-					
-					<h3>
-						Health:
-						<?php
-							$current_health = $_SESSION["player"]-> getHealth();
-							echo "$current_health";
-						?>
-					</h3>
-					<h3>
-						Mana:
-						<?php
-							$current_mana = $_SESSION["player"] -> getMana();
-							echo "$current_mana";
-						?>
-				</h3>
 				</div>
 				
 			</div>
 			<div class="boss-bar">
-				<h3>Health:
+				<h3 id="red">Health:
 					<?php
 						$current_boss_health = $_SESSION["boss"]-> getHealth();
 						echo "$current_boss_health";

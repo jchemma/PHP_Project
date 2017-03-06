@@ -1,14 +1,22 @@
 body {
-	width: 100%;
+	background-image: url("../img/lava.gif");
 	background-repeat: no-repeat;
 	background-size: cover;
-	position: fixed;
-	top: 0;
-	left: 0;
 }
 
-h3 {
-	background-color: white;
+#red{
+	background-color: red;
+}
+
+#blue{
+	background-color: blue;
+}
+
+#green {
+	background-color: green;
+}
+.boss-bar h3{
+	background-color: red;
 }
 
 form {
@@ -16,7 +24,6 @@ form {
 }
 
 .player-bar {
-	border: 1px solid black;
 	width: 48%;
 	height: 20%;
 	float: left;
@@ -25,30 +32,42 @@ form {
 }
 
 .boss-bar {
-	border: 1px solid black;
-	height: 20%;
 	width:48%;
 	float: right;
 	text-align: center;
+	padding: 10px;
 }
 
 .arena {
 	width: 100%;
 	height: 80%;
-	display: inline;
+	display: inline-block;
 	overflow: none;
 }
 
 .player {
-	border: 1px solid black;
 	height: 100%;
-	width: 50%;
+	width: 35%;
 	float: left;
+	margin-left: 50px;
+	margin-top: 19%;
+	margin-bottom: -10%;
+	padding: 0px;
+	overflow: none;
+}
+
+.player img {
+	width: 200px;
+	margin-top: 20%;
+	margin-left: 62%;
 }
 
 .boss {
-	border: 1px solid black;
 	height: 100%;
-	width: 50%;
+	width: 60%;
 	float: right;
+}
+
+.boss img {
+	width: 100%;
 }
